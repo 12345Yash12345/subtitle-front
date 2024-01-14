@@ -1,0 +1,10 @@
+
+.app {
+  height:100vh;
+  justify-content: center;
+  align-content: center;
+}
+
+.video-div {
+height: 90vh;
+}
