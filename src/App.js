@@ -30,7 +30,7 @@ const App = () => {
       formData.append('subtitles', JSON.stringify(subs));
 
       try {
-        axios.post('http://localhost:3001/upload', formData, {
+        axios.post('https://subtitle-back.vercel.app/upload', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -72,7 +72,7 @@ const App = () => {
   const fetchSubtitles = async () => {
     try {
 
-      const response = await axios.get('http://localhost:3001/captions', {
+      const response = await axios.get('https://subtitle-back.vercel.app/captions', {
         responseType: 'blob',
       });
       const captionsBlob = new Blob([response.data], { type: 'text/vtt' });
@@ -86,7 +86,7 @@ const App = () => {
   const videoDiv = useMemo(() => {
     return <div className="video-div">
       <video controls width="100%" height="100%">
-        <source src="http://localhost:3001/uploads/video.mp4" type="video/mp4" />
+        <source src="https://subtitle-back.vercel.app/uploads/video.mp4" type="video/mp4" />
         <track kind="subtitles" src={subtitleResult} srclang="en" label="English" default />
         Your browser does not support the video tag.
       </video>
@@ -124,7 +124,7 @@ const App = () => {
             <Card.Body>
               <div className="video-div">
                 <video controls width="100%" height="100%">
-                  <source src="http://localhost:3001/uploads/video.mp4" type="video/mp4" />
+                  <source src="https://subtitle-back.vercel.app/uploads/video.mp4" type="video/mp4" />
                   <track kind="subtitles" src={subtitleResult} srclang="en" label="English" default />
                   Your browser does not support the video tag.
                 </video>
